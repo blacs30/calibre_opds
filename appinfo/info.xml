@@ -1,0 +1,44 @@
+<?xml version="1.0"?>
+<info>
+        <id>concos</id>
+        <name>Calibre on Nextcloud OPDS Server</name>
+	<summary>A Calibre OPDS catalog Server for Nextcloud.</summary>
+    <description>
+    <![CDATA[
+# OPDS Catalog
+[OPDS] is a syndication format for electronic publications based on Atom and HTTP which makes it possible to access those publications (which are not limited to electronic books) on any OPDS client device. Examples of the latter are phones and tablets running OPDS-compatible book readers, eg FBReader/CoolReader/Aldiko on Android or Marvin/KyBook/Stanza on iOS.
+
+The feed is in compliance with the OPDS 1.1 specification according to the online OPDS validator (http://opds-validator.appspot.com/).
+
+See [README] for more information on (mis)features of this app.
+
+   [OPDS]: http://opds-spec.org/about/
+   [README]: https://github.com/blacs30/nextcloud-calibre-opds/blob/master/README.md
+    ]]>
+    </description>
+    <licence>AGPL</licence>
+	<version>0.1.0</version>
+    <author>Claas Lisowski</author>
+	<category>tools</category>
+	<category>files</category>
+	<category>organization</category>
+        <repository type="git">https://github.com/blacs30/nextcloud-calibre-opds/</repository>
+        <bugs>https://github.com/blacs30/nextcloud-calibre-opds/issues/</bugs>
+        <homepage>https://github.com/blacs30/nextcloud-calibre-opds/</homepage>
+	<documentation>
+		<user>https://github.com/blacs30/nextcloud-calibre-opds/blob/master/README.md</user>
+	</documentation>
+	<screenshot>https://raw.githubusercontent.com/blacs30/nextcloud-calibre-opds/master/screenshots/concos-1.png</screenshot>
+        <dependencies>
+            <php min-version="5.4" />
+            <database>sqlite</database>
+            <lib>xml</lib>
+            <owncloud min-version="8.2" max-version="10.0" />
+            <nextcloud min-version="8.1" max-version="13.0" />
+        </dependencies>
+	<settings>
+		<admin>OCA\Concos\Settings\Admin</admin>
+	</settings>
+	<ocsid>168132</ocsid>
+</info>
+
