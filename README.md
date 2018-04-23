@@ -25,3 +25,7 @@ The feed has been tested on these clients:
 
  - Smultron on iOS: OK
  - TotalReader Pro on iOS: NOK (doesn't support authentication)
+ 
+#### Credit:
+* skeleton: https://github.com/Yetangitu/owncloud-apps/tree/master/files_opds
+* idea: https://github.com/seblucas/cops
