@@ -17,7 +17,7 @@ The OPDS feed is disabled when the app is installed, enable it in the personal s
 
 To connect to the OPDS feed, point your OPDS client at the app URL:
 
-     https://example.com/path/to/owncloud/index.php/apps/concos/
+     https://example.com/path/to/nextcloud/index.php/apps/concos/
 
 If all goes well, the client should ask for a username and password - enter your *-cloud credentials here (and make sure you use HTTPS!).
 
@@ -27,5 +27,6 @@ The feed has been tested on these clients:
  - TotalReader Pro on iOS: NOK (doesn't support authentication)
  
 #### Credit:
-* skeleton: https://github.com/Yetangitu/owncloud-apps/tree/master/files_opds
-* idea: https://github.com/seblucas/cops
+* As I'm not a php developer and have never written any nextcloud application the files_opds was a nice tempalte. https://github.com/Yetangitu/owncloud-apps/tree/master/files_opds
+
+* COPS was the standalone php calibre opds server which I wanted to see in Nextcloud, all the brainwork comes from that repo: https://github.com/seblucas/cops

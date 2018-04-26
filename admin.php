@@ -25,7 +25,7 @@ $tmpl->assign('concosCoverY', Config::getApp('concos_cover_y', '200'));
 $tmpl->assign('concosThumbX', Config::getApp('concos_thumb_x', '36'));
 $tmpl->assign('concosThumbY', Config::getApp('concos_thumb_y', '36'));
 $tmpl->assign('concosAuthorName', Config::getApp('concos_author_name', 'Claas Lisowski' ));
-$tmpl->assign('concosAuthorUri', Config::getApp('concos_author_uri', 'https://github.com/blacs30/nextcloud-calibre-opds' ));
+$tmpl->assign('concosAuthorUri', Config::getApp('concos_author_uri', 'https://github.com/blacs30/concos' ));
 $tmpl->assign('concosAuthorEmail', Config::getApp('concos_author_email', 'github@lisowski-development.com' ));
 
 return $tmpl->fetchPage();

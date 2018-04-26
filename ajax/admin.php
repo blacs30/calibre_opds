@@ -26,7 +26,7 @@ $l = \OC::$server->getL10N('concos');
 	$concosThumbY = isset($_POST['concosThumbY']) ? (int) $_POST['concosThumbY'] : 36;
 	$concosFeedSubtitle = isset($_POST['concosFeedSubtitle']) ? $_POST['concosFeedSubtitle'] : $l->t("%s OPDS catalog", $defaults->getName());
 	$concosAuthorName = isset($_POST['concosAuthorName']) ? $_POST['concosAuthorName'] : 'Claas Lisowski';
-	$concosAuthorUri = isset($_POST['concosAuthorUri']) ? $_POST['concosAuthorUri'] : 'https://github.com/blacs30/nextcloud-calibre-opds';
+	$concosAuthorUri = isset($_POST['concosAuthorUri']) ? $_POST['concosAuthorUri'] : 'https://github.com/blacs30/concos';
 	$concosAuthorEmail = isset($_POST['concosAuthorEmail']) ? $_POST['concosAuthorEmail'] : 'github@lisowski-developent.com';
 
 	Config::setApp('concos_absolute_data_path', $concosAbsoluteDataPath);
