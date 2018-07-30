@@ -94,6 +94,5 @@ and book = ?');
         }
 
         return $authorArray;
-        // return "bla";
     }
 }
