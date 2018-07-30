@@ -47,7 +47,7 @@ class Tag extends Base {
     }
 
     public static function getAllTags() {
-        return Base::getEntryArrayWithBookNumber(self::SQL_ALL_TAGS, self::TAG_COLUMNS, array(), "OCA\Concos\Tag");
+        return Base::getEntryArrayWithBookNumber(self::SQL_ALL_TAGS, self::TAG_COLUMNS, array(), "OCA\Calibre_opds\Tag");
     }
 
     public static function getAllTagsByQuery($query, $n, $database = NULL, $numberPerPage = NULL) {

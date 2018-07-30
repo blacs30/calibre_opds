@@ -36,13 +36,12 @@ $tmpl->assign('concosTitleSplitFirstLetter-checked', ($concosTitleSplitFirstLett
 $tmpl->assign('concosTitleSplitFirstLetter-value', ($concosTitleSplitFirstLetter === 'true') ? '1' : '0');
 $tmpl->assign('concosIgnoredCategories', Config::get('concos_ignored_categories', ''));
 $tmpl->assign('concosFullUrl', Config::get('concos_full_url', ''));
-$tmpl->assign('concosBooksFilter', Config::get('concos_books_filter', ''));
 
 $tmpl->assign('concosUserCalibrePath', Config::get('concos_user_calibre_path', '/Library'));
 $tmpl->assign('concosLanguage', Config::get('concos_language', ''));
 $tmpl->assign('concosMaxItemPerPage', Config::get('concos_max_item_per_page', '-1'));
 $tmpl->assign('concosRecentBooksLimit', Config::get('concos_recentbooks_limit', '50'));
 $tmpl->assign('concosFeedTitle', Config::get('concos_feed_title', $l->t("%s's Library", \OCP\User::getDisplayName())));
-$tmpl->assign('concosFeedUrl', Util::linkToAbsolute('', 'index.php') . 'apps/files_opds/index.php');
+$tmpl->assign('concosFeedUrl', Util::linkToAbsolute('', 'index.php') . 'apps/calibre_opds/index.php');
 
 return $tmpl->fetchPage();

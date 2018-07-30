@@ -180,7 +180,7 @@ class Page {
             return false;
         }
 
-        if (get_class($this->entryArray[0]) == "OCA\Concos\EntryBook") {
+        if (get_class($this->entryArray[0]) == "OCA\Calibre_opds\EntryBook") {
             return true;
         }
 

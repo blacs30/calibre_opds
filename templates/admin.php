@@ -23,7 +23,7 @@ $l = \OC::$server->getL10N('calibre_opds');
 <div class="section" id="opds-admin">
 	<table>
 	<tr>
-                <td><h2><?php p($l->t('Concos'));?></h2></td><td>&nbsp;<span class="msg"></span></td>
+                <td><h2><?php p($l->t('Calibre OPDS'));?></h2></td><td>&nbsp;<span class="msg"></span></td>
 	</tr>
 	</table>
 	<table>
@@ -32,15 +32,15 @@ $l = \OC::$server->getL10N('calibre_opds');
                 <td><input type="text" id="concos-feed-subtitle" title="<?php p($l->t("Enter subtitle for OPDS catalog."));?>" value="<?php p($_['feedSubtitle'])?>" /></td>
         </tr>
         <tr>
-                <td><label for="concos-author-name"><?php p($l->t('Concos author Name:'))?></label></td>
+                <td><label for="concos-author-name"><?php p($l->t('Calibre OPDS author Name:'))?></label></td>
                 <td><input type="text" id="concos-author-name" title="<?php p($l->t("Enter the name for the OPDS author."));?>" value="<?php p($_['concosAuthorName'])?>" /></td>
         </tr>
         <tr>
-                <td><label for="concos-author-uri"><?php p($l->t('Concos author URI:'))?></label></td>
+                <td><label for="concos-author-uri"><?php p($l->t('Calibre OPDS author URI:'))?></label></td>
                 <td><input type="text" id="concos-author-uri" title="<?php p($l->t("Enter the URI for the author of concos."));?>" value="<?php p($_['concosAuthorUri'])?>" /></td>
         </tr>
         <tr>
-                <td><label for="concos-author-email"><?php p($l->t('Concos author email:'))?></label></td>
+                <td><label for="concos-author-email"><?php p($l->t('Calibre OPDS author email:'))?></label></td>
                 <td><input type="text" id="concos-author-email" title="<?php p($l->t("Enter the email for the author of concos."));?>" value="<?php p($_['concosAuthorEmail'])?>" /></td>
         </tr>
         <tr>

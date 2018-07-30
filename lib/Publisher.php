@@ -60,10 +60,10 @@ from publishers where id = ?');
     }
 
     public static function getAllPublishers() {
-        return Base::getEntryArrayWithBookNumber(self::SQL_ALL_PUBLISHERS, self::PUBLISHERS_COLUMNS, array(), "OCA\Concos\Publisher");
+        return Base::getEntryArrayWithBookNumber(self::SQL_ALL_PUBLISHERS, self::PUBLISHERS_COLUMNS, array(), "OCA\Calibre_opds\Publisher");
     }
 
     public static function getAllPublishersByQuery($query) {
-        return Base::getEntryArrayWithBookNumber(self::SQL_PUBLISHERS_FOR_SEARCH, self::PUBLISHERS_COLUMNS, array('%' . $query . '%'), "OCA\Concos\Publisher");
+        return Base::getEntryArrayWithBookNumber(self::SQL_PUBLISHERS_FOR_SEARCH, self::PUBLISHERS_COLUMNS, array('%' . $query . '%'), "OCA\Calibre_opds\Publisher");
     }
 }

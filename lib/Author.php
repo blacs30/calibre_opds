@@ -73,7 +73,7 @@ order by substr (upper (sort), 1, 1)", "substr (upper (sort), 1, 1) as title, co
     }
 
     public static function getEntryArray($query, $params) {
-        return Base::getEntryArrayWithBookNumber($query, self::AUTHOR_COLUMNS, $params, "OCA\Concos\Author");
+        return Base::getEntryArrayWithBookNumber($query, self::AUTHOR_COLUMNS, $params, "OCA\Calibre_opds\Author");
     }
 
     public static function getAuthorById($authorId) {

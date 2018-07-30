@@ -25,7 +25,6 @@ $concosAuthorSplitFirstLetter = isset($_POST['concosAuthorSplitFirstLetter']) ? 
 $concosTitleSplitFirstLetter = isset($_POST['concosTitleSplitFirstLetter']) ? $_POST['concosTitleSplitFirstLetter'] : 'false';
 $concosUserCalibrePath = isset($_POST['concosUserCalibrePath']) ? $_POST['concosUserCalibrePath'] : '/Library';
 $concosFullUrl = isset($_POST['concosFullUrl']) ? $_POST['concosFullUrl'] : '';
-$concosBooksFilter = isset($_POST['concosBooksFilter']) ? $_POST['concosBooksFilter'] : '';
 $concosIgnoredCategories = isset($_POST['concosIgnoredCategories']) ? $_POST['concosIgnoredCategories'] : '';
 $concosMaxItemPerPage = isset($_POST['concosMaxItemPerPage']) ? $_POST['concosMaxItemPerPage'] : '-1';
 $concosRecentBooksLimit = isset($_POST['concosRecentBooksLimit']) ? $_POST['concosRecentBooksLimit'] : '50';
@@ -46,7 +45,6 @@ if (!strlen($concosUserCalibrePath) ||
     Config::set('concos_generate_invalid_opds_stream', $concosGenerateInvalidOpdsStream);
     Config::set('enable', $concosEnable);
     Config::set('concos_provide_kepub', $concosProvideKepub);
-    Config::set('concos_books_filter', $concosBooksFilter);
     Config::set('concos_language', $concosLanguage);
     Config::set('concos_ignored_categories', $concosIgnoredCategories);
     Config::set('concos_full_url', $concosFullUrl);

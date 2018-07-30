@@ -19,7 +19,6 @@ $(document).ready(function(){
                                 concosUserCalibrePath : $('#concos-user-calibre-path').val(),
                                 concosIgnoredCategories : $('#concos-ignored-categories').val(),
                                 concosFullUrl : $('#concos-opds-full-url').val(),
-                                concosBooksFilter : $('#concos-books-filter').val(),
                                 concosMaxItemPerPage : $('#concos-max-item-per-page').val(),
                                 concosRecentBooksLimit : $('#concos-recentbooks-limit').val(),
                                 concosLanguage : $('#concos-language').val(),
@@ -32,8 +31,8 @@ $(document).ready(function(){
                         OC.msg.finishedSaving('#concos-personal .msg', data);
                 }
         };
-        $('#concos-user-calibre-path,#concos-feed-title,#concos-max-item-per-page,#concos-recentbooks-limit,#concos-opds-full-url,#concos-books-filter,#concos-ignored-categories,#concos-language').blur(opdsSettings.save);
-        $('#concos-user-calibre-path,#concos-feed-title,#concos-max-item-per-page,#concos-recentbooks-limit,#concos-opds-full-url,#concos-books-filter,#concos-ignored-categories,#concos-language').keypress(function( event ) {
+        $('#concos-user-calibre-path,#concos-feed-title,#concos-max-item-per-page,#concos-recentbooks-limit,#concos-opds-full-url,#concos-ignored-categories,#concos-language').blur(opdsSettings.save);
+        $('#concos-user-calibre-path,#concos-feed-title,#concos-max-item-per-page,#concos-recentbooks-limit,#concos-opds-full-url,#concos-ignored-categories,#concos-language').keypress(function( event ) {
                                                 if (event.which == 13) {
                                                   event.preventDefault();
                                                   opdsSettings.save();

@@ -135,23 +135,6 @@ class OPDSRenderer {
             $link = new Link(Config::get('concos_full_url', '') . 'index.php' . $urlparam, "application/atom+xml", "search", "Search here");
         }
         self::renderLink($link);
-
-        $asArr = explode(',', Config::get('concos_books_filter', ''));
-        $concos_books_filter = array();
-        if (!is_null($concos_books_filter) && count($concos_books_filter) > 0) {
-            foreach ($asArr as $val) {
-                $tmp = explode('>', $val);
-                $concos_books_filter[$tmp[0]] = $tmp[1];
-            }
-        }
-
-        if ($page->containsBook() && !is_null($concos_books_filter) && count($concos_books_filter) > 0) {
-            $Urlfilter = getURLParam("tag", "");
-            foreach ($concos_books_filter as $lib => $filter) {
-                $link = new LinkFacet("?" . addURLParameter(getQueryString(), "tag", $filter), $lib, localize("tagword.title"), $filter == $Urlfilter);
-                self::renderLink($link);
-            }
-        }
     }
 
     private function endXmlDocument() {
@@ -212,7 +195,7 @@ class OPDSRenderer {
             self::renderLink($link);
         }
 
-        if (get_class($entry) != "OCA\Concos\EntryBook") {
+        if (get_class($entry) != "OCA\Calibre_opds\EntryBook") {
             return;
         }
 

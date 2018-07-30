@@ -17,21 +17,21 @@ style('calibre_opds', 'settings');
 <div class="section" id="concos-personal">
         <table>
         <tr>
-                <td><h2><?php p($l->t('Concos'));?></h2></td><td>&nbsp;<span class="msg"></span></td>
+                <td><h2><?php p($l->t('Calibre OPDS'));?></h2></td><td>&nbsp;<span class="msg"></span></td>
         </tr>
         </table>
         <div>
 		<input id="concos-enable" name="concos-enable" value="<?php p($_['concosEnable-value'])?>" <?php p($_['concosEnable-checked'])?> type="checkbox" class="checkbox">
-                <label for="concos-enable"><?php p($l->t('enable Concos (Calibre on Nextcloud OPDS Server'))?></label>
+                <label for="concos-enable"><?php p($l->t('enable Calibre OPDS'))?></label>
 	</div>
         <br>
         <div>
                 <input id="concos-author-split-first-letter" name="concos-author-split-first-letter" value="<?php p($_['concosAuthorSplitFirstLetter-value'])?>" <?php p($_['concosAuthorSplitFirstLetter-checked'])?> type="checkbox" class="checkbox">
-                <label for="concos-author-split-first-letter"><?php p($l->t('Split authors by firstname'))?></label>
+                <label for="concos-author-split-first-letter"><?php p($l->t('Split authors by first letter'))?></label>
         </div>
         <div>
                 <input id="concos-title-split-first-letter" name="concos-title-split-first-letter" value="<?php p($_['concosTitleSplitFirstLetter-value'])?>" <?php p($_['concosTitleSplitFirstLetter-checked'])?> type="checkbox" class="checkbox">
-                <label for="concos-title-split-first-letter"><?php p($l->t('Split titles by firstname'))?></label>
+                <label for="concos-title-split-first-letter"><?php p($l->t('Split titles by first letter'))?></label>
         </div>
         <div>
                 <input id="concos-show-icons" name="concos-show-icons" value="<?php p($_['concosShowIcons-value'])?>" <?php p($_['concosShowIcons-checked'])?> type="checkbox" class="checkbox">
@@ -57,7 +57,7 @@ style('calibre_opds', 'settings');
         </tr>
         <tr>
                 <td><label for="concos-max-item-per-page"><?php p($l->t('Max items per page:'))?></label></td>
-                <td><input type="text" id="concos-max-item-per-page" title="<?php p($l->t("Enter the number of maximum items per page."));?>" value="<?php p($_['concosMaxItemPerPage'])?>" /></td>
+                <td><input type="text" id="concos-max-item-per-page" title="<?php p($l->t("Enter the number of maximum items per page (-1 for unlimted)."));?>" value="<?php p($_['concosMaxItemPerPage'])?>" /></td>
         </tr>
         <tr>
                 <td><label for="concos-recentbooks-limit"><?php p($l->t('Recent book additions limit:'))?></label></td>
@@ -75,10 +75,6 @@ style('calibre_opds', 'settings');
                 <td><label for="concos-ignored-categories"><?php p($l->t('Ignored categories:'))?></label></td>
                 <td><input type="text" id="concos-ignored-categories" title="<?php p($l->t("Specify the ignored categories for the home screen and with search. Meaning that if you do not want to search in publishers or tags just add them from the list. Only accepted values: author,book,series,tag,publisher,rating,language - leave empty to not use it."));?>" value="<?php p($_['concosIgnoredCategories'])?>" /></td>
         </tr>
-<!--  	<tr>
-                <td><label for="concos-books-filter"><?php p($l->t('List tags to filter for:'))?></label></td>
-                <td><input type="text" id="concos-books-filter" title="<?php p($l->t("Enter list of comma-separated tag list - leave empty to not use it."));?>" value="<?php p($_['concosBooksFilter'])?>" /></td>
-        </tr> -->
 	</table>
 	<br>
 	<div>

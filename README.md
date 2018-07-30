@@ -13,7 +13,7 @@ In the personal settings page there are options to enable/disable the feed (it i
 
 The admin settings page contains options to set the feed subtitle, the absolute path to the data directory for *-cloud and change the cover image and thumbnail dimensions.
 
-The OPDS feed is disabled when the app is installed, enable it in the personal settings page under the header 'Concos'. Every user has his/her own feed, which feed you get depends on which credentials you enter.
+The OPDS feed is disabled when the app is installed, enable it in the personal settings page under the header 'Calibre OPDS'. Every user has his/her own feed, which feed you get depends on which credentials you enter.
 
 To connect to the OPDS feed, point your OPDS client at the app URL:
 
