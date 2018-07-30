@@ -9,12 +9,10 @@
  * later.
  */
 
-namespace OCA\Concos;
+namespace OCA\Calibre_opds;
 
-class PageAllPublishers extends Page
-{
-    public function InitializeContent ()
-    {
+class PageAllPublishers extends Page {
+    public function InitializeContent() {
         $this->title = localize("publishers.title");
         $this->entryArray = Publisher::getAllPublishers();
         $this->idPage = Publisher::ALL_PUBLISHERS_ID;

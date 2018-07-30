@@ -9,12 +9,10 @@
  * later.
  */
 
-namespace OCA\Concos;
+namespace OCA\Calibre_opds;
 
-class PageAllTags extends Page
-{
-    public function InitializeContent ()
-    {
+class PageAllTags extends Page {
+    public function InitializeContent() {
         $this->title = localize("tags.title");
         $this->entryArray = Tag::getAllTags();
         $this->idPage = Tag::ALL_TAGS_ID;

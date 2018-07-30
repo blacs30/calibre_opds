@@ -9,12 +9,10 @@
  * later.
  */
 
-namespace OCA\Concos;
+namespace OCA\Calibre_opds;
 
-class PageAllRating extends Page
-{
-    public function InitializeContent ()
-    {
+class PageAllRating extends Page {
+    public function InitializeContent() {
         $this->title = localize("ratings.title");
         $this->entryArray = Rating::getAllRatings();
         $this->idPage = Rating::ALL_RATING_ID;

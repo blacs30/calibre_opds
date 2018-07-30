@@ -9,14 +9,12 @@
  * later.
  */
 
-namespace OCA\Concos;
+namespace OCA\Calibre_opds;
 
-class PageRecentBooks extends Page
-{
-    public function InitializeContent ()
-    {
-        $this->title = localize ("recent.title");
-        $this->entryArray = Book::getAllRecentBooks ();
+class PageRecentBooks extends Page {
+    public function InitializeContent() {
+        $this->title = localize("recent.title");
+        $this->entryArray = Book::getAllRecentBooks();
         $this->idPage = Book::ALL_RECENT_BOOKS_ID;
     }
 }

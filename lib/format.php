@@ -9,10 +9,9 @@
  * later.
  */
 
-namespace OCA\Concos;
+namespace OCA\Calibre_opds;
 
-class Format
-{
+class Format {
     private $input = '';
     private $output = '';
     private $tabs = 0;
@@ -22,8 +21,7 @@ class Format
     private $inline_tag = FALSE;
     private $input_index = 0;
 
-    public function HTML($input)
-    {
+    public function HTML($input) {
         $this->input = $input;
         $this->output = '';
 
@@ -45,12 +43,12 @@ class Format
                 if (preg_match('/[\r\n\t]/', $this->input[$this->input_index])) {
                     continue;
                 } elseif ($this->input[$this->input_index] == '<') {
-                    if ( ! $this->is_inline_tag()) {
+                    if (!$this->is_inline_tag()) {
                         $this->in_content = FALSE;
                     }
                     $this->parse_tag();
-                } elseif ( ! $this->in_content) {
-                    if ( ! $this->inline_tag) {
+                } elseif (!$this->in_content) {
+                    if (!$this->inline_tag) {
                         $this->output .= "\n" . str_repeat("\t", $this->tabs);
                     }
                     $this->in_content = TRUE;
@@ -62,8 +60,7 @@ class Format
         return $this->output;
     }
 
-    private function parse_comment()
-    {
+    private function parse_comment() {
         if ($this->is_end_comment()) {
             $this->in_comment = FALSE;
             $this->output .= '-->';
@@ -73,8 +70,7 @@ class Format
         }
     }
 
-    private function parse_inner_tag()
-    {
+    private function parse_inner_tag() {
         if ($this->input[$this->input_index] == '>') {
             $this->in_tag = FALSE;
             $this->output .= '>';
@@ -83,8 +79,7 @@ class Format
         }
     }
 
-    private function parse_inner_inline_tag()
-    {
+    private function parse_inner_inline_tag() {
         if ($this->input[$this->input_index] == '>') {
             $this->inline_tag = FALSE;
             $this->decrement_tabs();
@@ -94,8 +89,7 @@ class Format
         }
     }
 
-    private function parse_tag()
-    {
+    private function parse_tag() {
         if ($this->is_comment()) {
             $this->output .= "\n" . str_repeat("\t", $this->tabs);
             $this->in_comment = TRUE;
@@ -103,15 +97,15 @@ class Format
             $this->in_tag = TRUE;
             $this->inline_tag = FALSE;
             $this->decrement_tabs();
-            if ( ! $this->is_inline_tag() AND ! $this->is_tag_empty()) {
+            if (!$this->is_inline_tag() AND !$this->is_tag_empty()) {
                 $this->output .= "\n" . str_repeat("\t", $this->tabs);
             }
         } else {
             $this->in_tag = TRUE;
-            if ( ! $this->in_content AND ! $this->inline_tag) {
+            if (!$this->in_content AND !$this->inline_tag) {
                 $this->output .= "\n" . str_repeat("\t", $this->tabs);
             }
-            if ( ! $this->is_closed_tag()) {
+            if (!$this->is_closed_tag()) {
                 $this->tabs++;
             }
             if ($this->is_inline_tag()) {
@@ -120,8 +114,7 @@ class Format
         }
     }
 
-    private function is_end_tag()
-    {
+    private function is_end_tag() {
         for ($input_index = $this->input_index; $input_index < strlen($this->input); $input_index++) {
             if ($this->input[$input_index] == '<' AND $this->input[$input_index + 1] == '/') {
                 return true;
@@ -134,47 +127,43 @@ class Format
         return false;
     }
 
-    private function decrement_tabs()
-    {
+    private function decrement_tabs() {
         $this->tabs--;
         if ($this->tabs < 0) {
             $this->tabs = 0;
         }
     }
 
-    private function is_comment()
-    {
+    private function is_comment() {
         if ($this->input[$this->input_index] == '<'
-        AND $this->input[$this->input_index + 1] == '!'
-        AND $this->input[$this->input_index + 2] == '-'
-        AND $this->input[$this->input_index + 3] == '-') {
+            AND $this->input[$this->input_index + 1] == '!'
+            AND $this->input[$this->input_index + 2] == '-'
+            AND $this->input[$this->input_index + 3] == '-') {
             return true;
         } else {
             return false;
         }
     }
 
-    private function is_end_comment()
-    {
+    private function is_end_comment() {
         if ($this->input[$this->input_index] == '-'
-        AND $this->input[$this->input_index + 1] == '-'
-        AND $this->input[$this->input_index + 2] == '>') {
+            AND $this->input[$this->input_index + 1] == '-'
+            AND $this->input[$this->input_index + 2] == '>') {
             return TRUE;
         } else {
             return FALSE;
         }
     }
 
-    private function is_tag_empty()
-    {
+    private function is_tag_empty() {
         $current_tag = $this->get_current_tag($this->input_index + 2);
         $in_tag = FALSE;
 
         for ($input_index = $this->input_index - 1; $input_index >= 0; $input_index--) {
-            if ( ! $in_tag) {
+            if (!$in_tag) {
                 if ($this->input[$input_index] == '>') {
                     $in_tag = TRUE;
-                } elseif ( ! preg_match('/\s/', $this->input[$input_index])) {
+                } elseif (!preg_match('/\s/', $this->input[$input_index])) {
                     return FALSE;
                 }
             } else {
@@ -190,8 +179,7 @@ class Format
         return TRUE;
     }
 
-    private function get_current_tag($input_index)
-    {
+    private function get_current_tag($input_index) {
         $current_tag = '';
 
         for ($input_index; $input_index < strlen($this->input); $input_index++) {
@@ -207,8 +195,7 @@ class Format
         return $current_tag;
     }
 
-    private function is_closed_tag()
-    {
+    private function is_closed_tag() {
         $closed_tags = array(
             'meta', 'link', 'img', 'hr', 'br', 'input',
         );
@@ -232,8 +219,7 @@ class Format
         }
     }
 
-    private function is_inline_tag()
-    {
+    private function is_inline_tag() {
         $inline_tags = array(
             'title', 'a', 'span', 'abbr', 'acronym', 'b', 'basefont', 'bdo', 'big', 'cite', 'code', 'dfn', 'em', 'font', 'i', 'kbd', 'q', 's', 'samp', 'small', 'strike', 'strong', 'sub', 'sup', 'textarea', 'tt', 'u', 'var', 'del', 'pre',
         );

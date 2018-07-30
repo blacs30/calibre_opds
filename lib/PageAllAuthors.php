@@ -9,17 +9,14 @@
  * later.
  */
 
-namespace OCA\Concos;
+namespace OCA\Calibre_opds;
 
-class PageAllAuthors extends Page
-{
-    public function InitializeContent ()
-    {
+class PageAllAuthors extends Page {
+    public function InitializeContent() {
         $this->title = localize("authors.title");
         if (Config::get('concos_author_split_first_letter', 'true') === 'true') {
             $this->entryArray = Author::getAllAuthorsByFirstLetter();
-        }
-        else {
+        } else {
             $this->entryArray = Author::getAllAuthors();
         }
         $this->idPage = Author::ALL_AUTHORS_ID;

@@ -9,13 +9,15 @@
  * later.
  */
 
-namespace OCA\Concos;
+namespace OCA\Calibre_opds;
 
-class LinkFacet extends Link
-{
+class LinkFacet extends Link {
     public function __construct($phref, $ptitle = NULL, $pfacetGroup = NULL, $pactiveFacet = FALSE) {
-        parent::__construct ($phref, Link::OPDS_PAGING_TYPE, "http://opds-spec.org/facet", $ptitle, $pfacetGroup, $pactiveFacet);
-        if (!is_null (GetUrlParam (DB))) $this->href = addURLParameter ($this->href, DB, GetUrlParam (DB));
+        parent::__construct($phref, Link::OPDS_PAGING_TYPE, "http://opds-spec.org/facet", $ptitle, $pfacetGroup, $pactiveFacet);
+        if (!is_null(GetUrlParam(DB))) {
+            $this->href = addURLParameter($this->href, DB, GetUrlParam(DB));
+        }
+
         $this->href = $this->href;
     }
 }

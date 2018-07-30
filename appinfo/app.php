@@ -1,5 +1,5 @@
 <?php
-$l = \OC::$server->getL10N('concos');
+$l = \OC::$server->getL10N('calibre_opds');
 
-\OCP\App::registerPersonal('concos', 'personal');
-\OCP\App::registerAdmin('concos', 'admin');
+\OCP\App::registerPersonal('calibre_opds', 'personal');
+\OCP\App::registerAdmin('calibre_opds', 'admin');

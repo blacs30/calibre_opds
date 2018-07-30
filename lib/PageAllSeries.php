@@ -9,12 +9,10 @@
  * later.
  */
 
-namespace OCA\Concos;
+namespace OCA\Calibre_opds;
 
-class PageAllSeries extends Page
-{
-    public function InitializeContent ()
-    {
+class PageAllSeries extends Page {
+    public function InitializeContent() {
         $this->title = localize("series.title");
         $this->entryArray = Serie::getAllSeries();
         $this->idPage = Serie::ALL_SERIES_ID;

@@ -26,7 +26,7 @@ $(document).ready(function(){
                                 concosFeedTitle : $('#concos-feed-title').val()
                         };
                         OC.msg.startSaving('#concos-personal .msg');
-                        $.post(OC.filePath('concos', 'ajax', 'personal.php'), data, opdsSettings.afterSave);
+                        $.post(OC.filePath('calibre_opds', 'ajax', 'personal.php'), data, opdsSettings.afterSave);
                 },
                 afterSave : function(data){
                         OC.msg.finishedSaving('#concos-personal .msg', data);

@@ -9,12 +9,10 @@
  * later.
  */
 
-namespace OCA\Concos;
+namespace OCA\Calibre_opds;
 
-class PageAllLanguages extends Page
-{
-    public function InitializeContent ()
-    {
+class PageAllLanguages extends Page {
+    public function InitializeContent() {
         $this->title = localize("languages.title");
         $this->entryArray = Language::getAllLanguages();
         $this->idPage = Language::ALL_LANGUAGES_ID;

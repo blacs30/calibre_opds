@@ -9,15 +9,13 @@
  * later.
  */
 
-namespace OCA\Concos;
+namespace OCA\Calibre_opds;
 
-class PageLanguageDetail extends Page
-{
-    public function InitializeContent ()
-    {
-        $language = Language::getLanguageById ($this->idGet);
-        $this->idPage = $language->getEntryId ();
+class PageLanguageDetail extends Page {
+    public function InitializeContent() {
+        $language = Language::getLanguageById($this->idGet);
+        $this->idPage = $language->getEntryId();
         $this->title = $language->lang_code;
-        list ($this->entryArray, $this->totalNumber) = Book::getBooksByLanguage ($this->idGet, $this->n);
+        list($this->entryArray, $this->totalNumber) = Book::getBooksByLanguage($this->idGet, $this->n);
     }
 }

@@ -9,109 +9,109 @@
  * later.
  */
 
-    namespace OCA\Concos;
+namespace OCA\Calibre_opds;
 
-    require_once 'base.php';
+require_once 'base.php';
 
-    $err   = getURLParam('err', -1);
-    $full  = getURLParam('full');
-    $error = NULL;
-    switch ($err) {
-        case 1 :
-            $error = 'Database error';
-            break;
-    }
+$err = getURLParam('err', -1);
+$full = getURLParam('full');
+$error = NULL;
+switch ($err) {
+case 1:
+    $error = 'Database error';
+    break;
+}
 
-    $format = new Format;
+$format = new Format;
 
-    $html = '<h2><b><u> COPS Configuration Check </u></b></h2>';
-    $formatted_html = $format->HTML($html);
-    echo $formatted_html;
+$html = '<h2><b><u> COPS Configuration Check </u></b></h2>';
+$formatted_html = $format->HTML($html);
+echo $formatted_html;
 
-    if (!is_null($error)) {
-        $error_title = '<h3>You\'ve been redirected because COPS is not configured properly</h3>';
-        $formatted_error_title = $format->HTML($error_title);
-        echo $formatted_error_title;
+if (!is_null($error)) {
+    $error_title = '<h3>You\'ve been redirected because COPS is not configured properly</h3>';
+    $formatted_error_title = $format->HTML($error_title);
+    echo $formatted_error_title;
 
-        $formatted_error = $format->HTML($error);
-        echo $error;
-    }
+    $formatted_error = $format->HTML($error);
+    echo $error;
+}
 
-    $html = '<h3>Check if PHP version is correct</h3>';
-    $formatted_html = $format->HTML($html);
-    echo $formatted_html;
-    if (defined('PHP_VERSION_ID')) {
-        if (PHP_VERSION_ID >= 50300) {
-            echo 'OK (' . PHP_VERSION . ')';
-        } else {
-            echo 'Please install PHP >= 5.3 (' . PHP_VERSION . ')';
-        }
+$html = '<h3>Check if PHP version is correct</h3>';
+$formatted_html = $format->HTML($html);
+echo $formatted_html;
+if (defined('PHP_VERSION_ID')) {
+    if (PHP_VERSION_ID >= 50300) {
+        echo 'OK (' . PHP_VERSION . ')';
     } else {
-        echo 'Please install PHP >= 5.3';
+        echo 'Please install PHP >= 5.3 (' . PHP_VERSION . ')';
     }
+} else {
+    echo 'Please install PHP >= 5.3';
+}
 
-    $html = '<h3>Check if GD is properly installed and loaded</h3>';
-    $formatted_html = $format->HTML($html);
-    echo $formatted_html;
-    if (extension_loaded('gd') && function_exists('gd_info')) {
-        echo 'OK';
-    } else {
-        echo 'Please install the php5-gd / php7.0-gd extension and make sure it\'s enabled';
-    }
+$html = '<h3>Check if GD is properly installed and loaded</h3>';
+$formatted_html = $format->HTML($html);
+echo $formatted_html;
+if (extension_loaded('gd') && function_exists('gd_info')) {
+    echo 'OK';
+} else {
+    echo 'Please install the php5-gd / php7.0-gd extension and make sure it\'s enabled';
+}
 
-    $html = '<h3>Check if Sqlite is properly installed and loaded</h3>';
-    $formatted_html = $format->HTML($html);
-    echo $formatted_html;
-    if (extension_loaded('pdo_sqlite')) {
-        echo 'OK';
-    } else {
-        echo 'Please install the php5-sqlite / php7.0-sqlite3 extension and make sure it\'s enabled';
-    }
+$html = '<h3>Check if Sqlite is properly installed and loaded</h3>';
+$formatted_html = $format->HTML($html);
+echo $formatted_html;
+if (extension_loaded('pdo_sqlite')) {
+    echo 'OK';
+} else {
+    echo 'Please install the php5-sqlite / php7.0-sqlite3 extension and make sure it\'s enabled';
+}
 
-    $html = '<h3>Check if libxml is properly installed and loaded</h3>';
-    $formatted_html = $format->HTML($html);
-    echo $formatted_html;
-    if (extension_loaded('libxml')) {
-        echo 'OK';
-    } else {
-        echo 'Please make sure libxml is enabled';
-    }
+$html = '<h3>Check if libxml is properly installed and loaded</h3>';
+$formatted_html = $format->HTML($html);
+echo $formatted_html;
+if (extension_loaded('libxml')) {
+    echo 'OK';
+} else {
+    echo 'Please make sure libxml is enabled';
+}
 
-    $html = '<h3>Check if Json is properly installed and loaded</h3>';
-    $formatted_html = $format->HTML($html);
-    echo $formatted_html;
-    if (extension_loaded('json')) {
-        echo 'OK';
-    } else {
-        echo 'Please install the php5-json / php7.0-json extension and make sure it\'s enabled';
-    }
+$html = '<h3>Check if Json is properly installed and loaded</h3>';
+$formatted_html = $format->HTML($html);
+echo $formatted_html;
+if (extension_loaded('json')) {
+    echo 'OK';
+} else {
+    echo 'Please install the php5-json / php7.0-json extension and make sure it\'s enabled';
+}
 
-    $html = '<h3>Check if mbstring is properly installed and loaded</h3>';
-    $formatted_html = $format->HTML($html);
-    echo $formatted_html;
-    if (extension_loaded('mbstring')) {
-        echo 'OK';
-    } else {
-        echo 'Please install the php5-mbstring / php7.0-mbstring extension and make sure it\'s enabled';
-    }
+$html = '<h3>Check if mbstring is properly installed and loaded</h3>';
+$formatted_html = $format->HTML($html);
+echo $formatted_html;
+if (extension_loaded('mbstring')) {
+    echo 'OK';
+} else {
+    echo 'Please install the php5-mbstring / php7.0-mbstring extension and make sure it\'s enabled';
+}
 
-    $html = '<h3>Check if intl is properly installed and loaded</h3>';
-    $formatted_html = $format->HTML($html);
-    echo $formatted_html;
-    if (extension_loaded('intl')) {
-        echo 'OK';
-    } else {
-        echo 'Please install the php5-intl / php7.0-intl extension and make sure it\'s enabled';
-    }
+$html = '<h3>Check if intl is properly installed and loaded</h3>';
+$formatted_html = $format->HTML($html);
+echo $formatted_html;
+if (extension_loaded('intl')) {
+    echo 'OK';
+} else {
+    echo 'Please install the php5-intl / php7.0-intl extension and make sure it\'s enabled';
+}
 
-    $html = '<h3>Check if Normalizer class is properly installed and loaded</h3>';
-    $formatted_html = $format->HTML($html);
-    echo $formatted_html;
-    if (class_exists('Normalizer', $autoload = false)) {
-        echo 'OK';
-    } else {
-        echo 'Please make sure intl is enabled in your php.ini';
-    }
+$html = '<h3>Check if Normalizer class is properly installed and loaded</h3>';
+$formatted_html = $format->HTML($html);
+echo $formatted_html;
+if (class_exists('Normalizer', $autoload = false)) {
+    echo 'OK';
+} else {
+    echo 'Please make sure intl is enabled in your php.ini';
+}
 
 $i = 0;
 foreach (Base::getDbList() as $name => $database) {
@@ -119,7 +119,7 @@ foreach (Base::getDbList() as $name => $database) {
     $html = '<h3>Check if Calibre database path is not an URL</h3>';
     $formatted_html = $format->HTML($html);
     echo $formatted_html;
-    if (!preg_match ('#^http#', $database)) {
+    if (!preg_match('#^http#', $database)) {
         echo $name . ' OK';
     } else {
         echo $name . ' Calibre path has to be local (no URL allowed)';
@@ -130,7 +130,7 @@ foreach (Base::getDbList() as $name => $database) {
     echo $formatted_html;
 
     $file = \OC\Files\Filesystem::isReadable(Base::getDbFileName($i));
-    if($file) {
+    if ($file) {
         echo $name . ' OK';
     } else {
         echo $name . ' File ' . Base::getDbFileName($i) . ' not found,
@@ -150,7 +150,7 @@ Please check
     $formatted_html = $format->HTML($html);
     echo $formatted_html;
     try {
-        $db = new \PDO('sqlite:'. $calibre_db);
+        $db = new \PDO('sqlite:' . $calibre_db);
         echo $name . ' OK';
     } catch (Exception $e) {
         echo $name . ' If the file is readable, check your php configuration. Exception detail : ' . $e;
@@ -160,7 +160,7 @@ Please check
     $formatted_html = $format->HTML($html);
     echo $formatted_html;
     try {
-        $db = new \PDO('sqlite:'. $calibre_db);
+        $db = new \PDO('sqlite:' . $calibre_db);
         $count = $db->query('select count(*) FROM sqlite_master WHERE type="table" AND name in ("books", "authors", "tags", "series")')->fetchColumn();
         if ($count == 4) {
             echo $name . ' OK';
@@ -175,12 +175,11 @@ Please check
     $formatted_html = $format->HTML($html);
     echo $formatted_html;
     try {
-        $db = new \PDO('sqlite:'. $calibre_db);
+        $db = new \PDO('sqlite:' . $calibre_db);
         $result = $db->prepare('select books.path || "/" || data.name || "." || lower (format) as fullpath from data join books on data.book = books.id');
         $result->execute();
-        while ($post = $result->fetchObject())
-        {
-            if (!is_file (Base::getDbDirectory($i) . $post->fullpath)) {
+        while ($post = $result->fetchObject()) {
+            if (!is_file(Base::getDbDirectory($i) . $post->fullpath)) {
                 echo '<p>' . Base::getDbDirectory($i) . $post->fullpath . '</p>';
             }
         }

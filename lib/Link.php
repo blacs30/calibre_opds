@@ -9,10 +9,9 @@
  * later.
  */
 
-namespace OCA\Concos;
+namespace OCA\Calibre_opds;
 
-class Link
-{
+class Link {
     const OPDS_THUMBNAIL_TYPE = "http://opds-spec.org/image/thumbnail";
     const OPDS_IMAGE_TYPE = "http://opds-spec.org/image";
     const OPDS_ACQUISITION_TYPE = "http://opds-spec.org/acquisition";
@@ -35,7 +34,7 @@ class Link
         $this->activeFacet = $pactiveFacet;
     }
 
-    public function hrefXhtml () {
+    public function hrefXhtml() {
         return $this->href;
     }
 

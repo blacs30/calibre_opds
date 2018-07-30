@@ -9,15 +9,13 @@
  * later.
  */
 
-namespace OCA\Concos;
+namespace OCA\Calibre_opds;
 
-class PageRatingDetail extends Page
-{
-    public function InitializeContent ()
-    {
-        $rating = Rating::getRatingById ($this->idGet);
-        $this->idPage = $rating->getEntryId ();
-        $this->title =str_format (localize ("ratingword", $rating->name/2), $rating->name/2);
-        list ($this->entryArray, $this->totalNumber) = Book::getBooksByRating ($this->idGet, $this->n);
+class PageRatingDetail extends Page {
+    public function InitializeContent() {
+        $rating = Rating::getRatingById($this->idGet);
+        $this->idPage = $rating->getEntryId();
+        $this->title = str_format(localize("ratingword", $rating->name / 2), $rating->name / 2);
+        list($this->entryArray, $this->totalNumber) = Book::getBooksByRating($this->idGet, $this->n);
     }
 }

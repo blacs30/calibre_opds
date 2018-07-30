@@ -9,13 +9,11 @@
  * later.
  */
 
-namespace OCA\Concos;
+namespace OCA\Calibre_opds;
 
-class PageBookDetail extends Page
-{
-    public function InitializeContent ()
-    {
-        $this->book = Book::getBookById ($this->idGet);
+class PageBookDetail extends Page {
+    public function InitializeContent() {
+        $this->book = Book::getBookById($this->idGet);
         $this->title = $this->book->title;
     }
 }

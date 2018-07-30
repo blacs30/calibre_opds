@@ -1,7 +1,7 @@
 <?xml version="1.0"?>
 <info>
-        <id>concos</id>
-        <name>Calibre on Nextcloud OPDS Server</name>
+    <id>calibre_opds</id>
+    <name>Calibre on Nextcloud OPDS Server</name>
 	<summary>A Calibre OPDS catalog Server for Nextcloud.</summary>
     <description>
     <![CDATA[
@@ -13,32 +13,31 @@ The feed is in compliance with the OPDS 1.1 specification according to the onlin
 See [README] for more information on (mis)features of this app.
 
    [OPDS]: http://opds-spec.org/about/
-   [README]: https://github.com/blacs30/concos/blob/master/README.md
+   [README]: https://github.com/blacs30/calibre_opds/blob/master/README.md
     ]]>
     </description>
-    <licence>AGPL</licence>
-	<version>0.1.0</version>
+    <licence>GPL-2</licence>
+	<version>1.0.0</version>
     <author>Claas Lisowski</author>
 	<category>tools</category>
 	<category>files</category>
 	<category>organization</category>
-        <repository type="git">https://github.com/blacs30/concos/</repository>
-        <bugs>https://github.com/blacs30/concos/issues/</bugs>
-        <homepage>https://github.com/blacs30/concos/</homepage>
+    <repository type="git">https://github.com/blacs30/calibre_opds/</repository>
+    <bugs>https://github.com/blacs30/calibre_opds/issues/</bugs>
+    <homepage>https://github.com/blacs30/calibre_opds/</homepage>
 	<documentation>
-		<user>https://github.com/blacs30/concos/blob/master/README.md</user>
+		<user>https://github.com/blacs30/calibre_opds/blob/master/README.md</user>
 	</documentation>
-	<screenshot>https://raw.githubusercontent.com/blacs30/concos/master/screenshots/concos-1.png</screenshot>
-        <dependencies>
-            <php min-version="5.4" />
-            <database>sqlite</database>
-            <lib>xml</lib>
-            <owncloud min-version="8.2" max-version="10.0" />
-            <nextcloud min-version="8.1" max-version="13.0" />
-        </dependencies>
+	<screenshot small-thumbnail="https://raw.githubusercontent.com/blacs30/calibre_opds/master/images/icons/logo_small.png">https://raw.githubusercontent.com/blacs30/calibre_opds/master/images/icons/logo.png</screenshot>
+    <dependencies>
+        <php min-version="5.4" />
+        <database>sqlite</database>
+        <lib>xml</lib>
+        <owncloud min-version="8.2" max-version="10.0" />
+        <nextcloud min-version="8.1" max-version="14.0" />
+    </dependencies>
 	<settings>
-		<admin>OCA\Concos\Settings\Admin</admin>
+		<admin>OCA\calibre_opds\Settings\Admin</admin>
 	</settings>
-	<ocsid>168132</ocsid>
 </info>
 

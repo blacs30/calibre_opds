@@ -9,7 +9,7 @@
  * later.
  */
 
-namespace OCA\Concos;
+namespace OCA\Calibre_opds;
 
 require_once 'base.php';
 
@@ -47,12 +47,12 @@ if (isset($_GET['tid'])) {
 $OPDSRender = new OPDSRenderer();
 
 switch ($page) {
-    case Base::PAGE_OPENSEARCH :
-        echo $OPDSRender->getOpenSearch();
-        return;
-    default:
-        $currentPage = Page::getPage($page, $qid, $query, $n);
-        $currentPage->InitializeContent();
-        echo $OPDSRender->render($currentPage);
-        return;
+case Base::PAGE_OPENSEARCH:
+    echo $OPDSRender->getOpenSearch();
+    return;
+default:
+    $currentPage = Page::getPage($page, $qid, $query, $n);
+    $currentPage->InitializeContent();
+    echo $OPDSRender->render($currentPage);
+    return;
 }

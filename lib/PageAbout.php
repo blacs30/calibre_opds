@@ -9,12 +9,10 @@
  * later.
  */
 
-namespace OCA\Concos;
+namespace OCA\Calibre_opds;
 
-class PageAbout extends Page
-{
-    public function InitializeContent ()
-    {
-        $this->title = localize ("about.title");
+class PageAbout extends Page {
+    public function InitializeContent() {
+        $this->title = localize("about.title");
     }
 }

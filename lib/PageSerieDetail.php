@@ -9,15 +9,13 @@
  * later.
  */
 
-namespace OCA\Concos;
+namespace OCA\Calibre_opds;
 
-class PageSerieDetail extends Page
-{
-    public function InitializeContent ()
-    {
-        $serie = Serie::getSerieById ($this->idGet);
+class PageSerieDetail extends Page {
+    public function InitializeContent() {
+        $serie = Serie::getSerieById($this->idGet);
         $this->title = $serie->name;
-        list ($this->entryArray, $this->totalNumber) = Book::getBooksBySeries ($this->idGet, $this->n);
-        $this->idPage = $serie->getEntryId ();
+        list($this->entryArray, $this->totalNumber) = Book::getBooksBySeries($this->idGet, $this->n);
+        $this->idPage = $serie->getEntryId();
     }
 }

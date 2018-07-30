@@ -9,53 +9,46 @@
  * later.
  */
 
-namespace OCA\Concos;
+namespace OCA\Calibre_opds;
 use OC\Files\Filesystem;
-use OC\Files\View;
-use OCP\User;
 
-define ('VERSION', '1.1.2');
-define ('DB', 'mysql');
+define('VERSION', '1.1.2');
+define('DB', 'mysql');
 date_default_timezone_set('Etc/UTC');
 
 function getFullFilePath($file_path) {
-        // get the user for which the filesystem is setup
-        $root = Filesystem::getRoot();
-        return Config::getApp('concos_absolute_data_path', '') . $root . $file_path ;
+    // get the user for which the filesystem is setup
+    $root = Filesystem::getRoot();
+    return Config::getApp('concos_absolute_data_path', '') . $root . $file_path;
 }
 
-function getQueryString()
-{
+function getQueryString() {
     if (isset($_SERVER['QUERY_STRING'])) {
         return $_SERVER['QUERY_STRING'];
     }
     return "";
 }
 
-function notFound()
-{
-    header($_SERVER['SERVER_PROTOCOL'].' 404 Not Found');
+function notFound() {
+    header($_SERVER['SERVER_PROTOCOL'] . ' 404 Not Found');
     header('Status: 404 Not Found');
 
     $_SERVER['REDIRECT_STATUS'] = 404;
 }
 
-function getURLParam($name, $default = NULL)
-{
-    if (!empty ($_GET) && isset($_GET[$name]) && $_GET[$name] != '') {
+function getURLParam($name, $default = NULL) {
+    if (!empty($_GET) && isset($_GET[$name]) && $_GET[$name] != '') {
         return $_GET[$name];
     }
     return $default;
 }
 
-function getUrlWithVersion($url)
-{
+function getUrlWithVersion($url) {
     return $url . '?v=' . VERSION;
 }
 
-function xml2xhtml($xml)
-{
-    return preg_replace_callback('#<(\w+)([^>]*)\s*/>#s', function($m) {
+function xml2xhtml($xml) {
+    return preg_replace_callback('#<(\w+)([^>]*)\s*/>#s', function ($m) {
         $xhtml_tags = array('br', 'hr', 'input', 'frame', 'img', 'area', 'link', 'col', 'base', 'basefont', 'param');
         if (in_array($m[1], $xhtml_tags)) {
             return '<' . $m[1] . $m[2] . ' />';
@@ -65,26 +58,25 @@ function xml2xhtml($xml)
     }, $xml);
 }
 
-function display_xml_error($error)
-{
+function display_xml_error($error) {
     $return = '';
     $return .= str_repeat('-', $error->column) . "^\n";
 
     switch ($error->level) {
-        case LIBXML_ERR_WARNING:
-            $return .= 'Warning ' . $error->code . ': ';
-            break;
-         case LIBXML_ERR_ERROR:
-            $return .= 'Error ' . $error->code . ': ';
-            break;
-        case LIBXML_ERR_FATAL:
-            $return .= 'Fatal Error ' . $error->code . ': ';
-            break;
+    case LIBXML_ERR_WARNING:
+        $return .= 'Warning ' . $error->code . ': ';
+        break;
+    case LIBXML_ERR_ERROR:
+        $return .= 'Error ' . $error->code . ': ';
+        break;
+    case LIBXML_ERR_FATAL:
+        $return .= 'Fatal Error ' . $error->code . ': ';
+        break;
     }
 
     $return .= trim($error->message) .
-               "\n  Line: " . $error->line .
-               "\n  Column: " . $error->column;
+    "\n  Line: " . $error->line .
+    "\n  Column: " . $error->column;
 
     if ($error->file) {
         $return .= "\n  File: " . $error->file;
@@ -93,38 +85,41 @@ function display_xml_error($error)
     return "$return\n\n--------------------------------------------\n\n";
 }
 
-function are_libxml_errors_ok()
-{
+function are_libxml_errors_ok() {
     $errors = libxml_get_errors();
 
     foreach ($errors as $error) {
-        if ($error->code == 801) return false;
+        if ($error->code == 801) {
+            return false;
+        }
+
     }
     return true;
 }
 
-function html2xhtml($html)
-{
+function html2xhtml($html) {
     $doc = new \DOMDocument();
     libxml_use_internal_errors(true);
 
     $doc->loadHTML('<html><head><meta http-equiv="content-type" content="text/html; charset=utf-8"></head><body>' .
-                        $html  . '</body></html>'); // Load the HTML
+        $html . '</body></html>'); // Load the HTML
     $output = $doc->saveXML($doc->documentElement); // Transform to an Ansi xml stream
     $output = xml2xhtml($output);
-    if (preg_match ('#<html><head><meta http-equiv="content-type" content="text/html; charset=utf-8"></meta></head><body>(.*)</body></html>#ms', $output, $matches)) {
-        $output = $matches [1]; // Remove <html><body>
+    if (preg_match('#<html><head><meta http-equiv="content-type" content="text/html; charset=utf-8"></meta></head><body>(.*)</body></html>#ms', $output, $matches)) {
+        $output = $matches[1]; // Remove <html><body>
     }
     /*
     // In case of error with summary, use it to debug
     $errors = libxml_get_errors();
 
     foreach ($errors as $error) {
-        $output .= display_xml_error($error);
+    $output .= display_xml_error($error);
     }
-    */
+     */
 
-    if (!are_libxml_errors_ok ()) $output = 'HTML code not valid.';
+    if (!are_libxml_errors_ok()) {
+        $output = 'HTML code not valid.';
+    }
 
     libxml_use_internal_errors(false);
     return $output;
@@ -134,8 +129,7 @@ function html2xhtml($html)
  * This method is a direct copy-paste from
  * http://tmont.com/blargh/2010/1/string-format-in-php
  */
-function str_format($format)
-{
+function str_format($format) {
     $args = func_get_args();
     $format = array_shift($args);
 
@@ -155,8 +149,7 @@ function str_format($format)
  * languages id are normalized : fr-fr -> fr_FR
  * @return array of languages
  */
-function getAcceptLanguages()
-{
+function getAcceptLanguages() {
     $langs = array();
 
     if (isset($_SERVER['HTTP_ACCEPT_LANGUAGE'])) {
@@ -184,7 +177,10 @@ function getAcceptLanguages()
 
             // set default to 1 for any without q factor
             foreach ($langs as $lang => $val) {
-                if ($val === '') $langs[$lang] = 1;
+                if ($val === '') {
+                    $langs[$lang] = 1;
+                }
+
             }
 
             // sort list based on value
@@ -199,28 +195,26 @@ function getAcceptLanguages()
  * Find the best translation file possible based on the accepted languages
  * @return array of language and language file
  */
-function getLangAndTranslationFile()
-{
+function getLangAndTranslationFile() {
     $langs = array();
     $lang = 'en';
-    if (!empty(Config::get('concos_language',''))) {
-        $lang = Config::get('concos_language','');
-    }
-    elseif (isset($_SERVER['HTTP_ACCEPT_LANGUAGE'])) {
+    if (!empty(Config::get('concos_language', ''))) {
+        $lang = Config::get('concos_language', '');
+    } elseif (isset($_SERVER['HTTP_ACCEPT_LANGUAGE'])) {
         $langs = getAcceptLanguages();
     }
     //echo var_dump($langs);
     $lang_file = NULL;
     foreach ($langs as $language => $val) {
-        $temp_file = dirname(__FILE__). '/lang/Localization_' . $language . '.json';
+        $temp_file = dirname(__FILE__) . '/lang/Localization_' . $language . '.json';
         if (file_exists($temp_file)) {
             $lang = $language;
             $lang_file = $temp_file;
             break;
         }
     }
-    if (empty ($lang_file)) {
-        $lang_file = dirname(__FILE__). '/lang/Localization_' . $lang . '.json';
+    if (empty($lang_file)) {
+        $lang_file = dirname(__FILE__) . '/lang/Localization_' . $lang . '.json';
     }
 
     return array($lang, $lang_file);
@@ -230,14 +224,18 @@ function getLangAndTranslationFile()
  * This method is based on this page
  * http://www.mind-it.info/2010/02/22/a-simple-approach-to-localization-in-php/
  */
-function localize($phrase, $count=-1, $reset=false)
-{
-    if ($count == 0)
+function localize($phrase, $count = -1, $reset = false) {
+    if ($count == 0) {
         $phrase .= '.none';
-    if ($count == 1)
+    }
+
+    if ($count == 1) {
         $phrase .= '.one';
-    if ($count > 1)
+    }
+
+    if ($count > 1) {
         $phrase .= '.many';
+    }
 
     /* Static keyword is used to ensure the file is loaded only once */
     static $translations = NULL;
@@ -247,9 +245,9 @@ function localize($phrase, $count=-1, $reset=false)
     /* If no instance of $translations has occured load the language file */
     if (is_null($translations)) {
         $lang_file_en = NULL;
-        list ($lang, $lang_file) = getLangAndTranslationFile();
+        list($lang, $lang_file) = getLangAndTranslationFile();
         if ($lang != 'en') {
-            $lang_file_en = dirname(__FILE__). '/lang/' . 'Localization_en.json';
+            $lang_file_en = dirname(__FILE__) . '/lang/' . 'Localization_en.json';
         }
 
         $lang_file_content = file_get_contents($lang_file);
@@ -257,40 +255,38 @@ function localize($phrase, $count=-1, $reset=false)
         $translations = json_decode($lang_file_content, true);
 
         /* Clean the array of all unfinished translations */
-        foreach (array_keys ($translations) as $key) {
-            if (preg_match ('/^##TODO##/', $key)) {
-                unset ($translations [$key]);
+        foreach (array_keys($translations) as $key) {
+            if (preg_match('/^##TODO##/', $key)) {
+                unset($translations[$key]);
             }
         }
         if (!is_null($lang_file_en)) {
             $lang_file_content = file_get_contents($lang_file_en);
             $translations_en = json_decode($lang_file_content, true);
-            $translations = array_merge ($translations_en, $translations);
+            $translations = array_merge($translations_en, $translations);
         }
     }
-    if (array_key_exists ($phrase, $translations)) {
+    if (array_key_exists($phrase, $translations)) {
         return $translations[$phrase];
     }
     return $phrase;
 }
 
-function addURLParameter($urlParams, $paramName, $paramValue)
-{
-    if (empty ($urlParams)) {
+function addURLParameter($urlParams, $paramName, $paramValue) {
+    if (empty($urlParams)) {
         $urlParams = '';
     }
     $start = '';
-    if (preg_match ('#^\?(.*)#', $urlParams, $matches)) {
+    if (preg_match('#^\?(.*)#', $urlParams, $matches)) {
         $start = '?';
         $urlParams = $matches[1];
     }
     $params = array();
     parse_str($urlParams, $params);
-    if (empty ($paramValue) && $paramValue != 0) {
-        unset ($params[$paramName]);
+    if (empty($paramValue) && $paramValue != 0) {
+        unset($params[$paramName]);
     } else {
         $params[$paramName] = $paramValue;
     }
     return $start . http_build_query($params);
 }
-

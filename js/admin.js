@@ -14,7 +14,7 @@ $(document).ready(function(){
                                 concosAuthorEmail : $('#concos-author-email').val(),
                         };
                         OC.msg.startSaving('#opds-admin .msg');
-                        $.post(OC.filePath('concos', 'ajax', 'admin.php'), data, opdsAdminMiscSettings.afterSave);
+                        $.post(OC.filePath('calibre_opds', 'ajax', 'admin.php'), data, opdsAdminMiscSettings.afterSave);
                 },
                 afterSave : function(data){
                         OC.msg.finishedSaving('#opds-admin .msg', data);

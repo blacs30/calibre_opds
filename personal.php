@@ -9,18 +9,18 @@
  * later.
  */
 
-namespace OCA\Concos;
+namespace OCA\Calibre_opds;
 
 use OCP\Util;
 
-$l = \OC::$server->getL10N('concos');
+$l = \OC::$server->getL10N('calibre_opds');
 
-$tmpl = new \OCP\Template('concos', 'personal');
+$tmpl = new \OCP\Template('calibre_opds', 'personal');
 $concosEnable = Config::get('enable', false);
 $tmpl->assign('concosEnable-checked', ($concosEnable === 'true') ? 'checked="checked"' : '');
 $tmpl->assign('concosEnable-value', ($concosEnable === 'true') ? '1' : '0');
 $concosShowIcons = Config::get('concos_show_icons', false);
-$tmpl->assign('concosShowIcons-checked',($concosShowIcons === 'true') ? 'checked="checked"' : '');
+$tmpl->assign('concosShowIcons-checked', ($concosShowIcons === 'true') ? 'checked="checked"' : '');
 $tmpl->assign('concosShowIcons-value', ($concosEnable === 'true') ? '1' : '0');
 $concosProvideKepub = Config::get('concos_provide_kepub', false);
 $tmpl->assign('concosProvideKepub-checked', ($concosProvideKepub === 'true') ? 'checked="checked"' : '');
@@ -43,7 +43,6 @@ $tmpl->assign('concosLanguage', Config::get('concos_language', ''));
 $tmpl->assign('concosMaxItemPerPage', Config::get('concos_max_item_per_page', '-1'));
 $tmpl->assign('concosRecentBooksLimit', Config::get('concos_recentbooks_limit', '50'));
 $tmpl->assign('concosFeedTitle', Config::get('concos_feed_title', $l->t("%s's Library", \OCP\User::getDisplayName())));
-$tmpl->assign('concosFeedUrl', Util::linkToAbsolute('','index.php') . 'apps/files_opds/index.php');
+$tmpl->assign('concosFeedUrl', Util::linkToAbsolute('', 'index.php') . 'apps/files_opds/index.php');
 
 return $tmpl->fetchPage();
-
