@@ -16,7 +16,7 @@ See [README] for more information on (mis)features of this app.
    [README]: https://github.com/blacs30/calibre_opds/blob/master/README.md
     ]]>
     </description>
-    <licence>GPL-2</licence>
+    <licence>AGPL-3</licence>
 	<version>0.9.0</version>
     <author>Claas Lisowski</author>
 	<category>tools</category>
