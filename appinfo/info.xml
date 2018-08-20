@@ -17,7 +17,7 @@ See [README] for more information on (mis)features of this app.
     ]]>
     </description>
     <licence>GPL-2</licence>
-	<version>1.0.0</version>
+	<version>0.9.0</version>
     <author>Claas Lisowski</author>
 	<category>tools</category>
 	<category>files</category>
@@ -39,4 +39,3 @@ See [README] for more information on (mis)features of this app.
 		<admin>OCA\calibre_opds\Settings\Admin</admin>
 	</settings>
 </info>
-
