@@ -1,3 +1,7 @@
+## 0.9.1 - 2018-08-22
+### Changed
+ - added a trailing "/" to the full url which is generated - issue #3
+ - fixed filename OPDSrender -> OPDSRenderer.php
 ## 0.9.0 - 2018-08-22
 ### Changed
  - added valid signatures.json
