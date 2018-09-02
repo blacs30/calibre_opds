@@ -1,6 +1,9 @@
 Calibre_opds
 ----------
 
+### **Currently NOT compatible with Nextcloud 14**
+
+
 
 The Calibre on Nextcloud  OPDS catalog app enables Nextcloud/Owncloud (*-cloud for the rest of this text) users to publish a Calibre Library as an OPDS feed. 
 
