@@ -1,8 +1,9 @@
 Calibre_opds
 ----------
 
-### **Currently NOT compatible with Nextcloud 14**
-
+#### Known Restrictions 
+* Not compatible with Nextcloud 14
+* Not working with encryption enabled 
 
 
 The Calibre on Nextcloud  OPDS catalog app enables Nextcloud/Owncloud (*-cloud for the rest of this text) users to publish a Calibre Library as an OPDS feed. 
@@ -34,3 +35,6 @@ The feed has been tested on these clients:
 * As I'm not a php developer and have never written any nextcloud application the files_opds was a helpful guide. https://github.com/Yetangitu/owncloud-apps/tree/master/files_opds
 
 * COPS was the standalone php calibre opds server which I wanted to see in Nextcloud, all the brainwork comes from that repo: https://github.com/seblucas/cops
+
+#### Contribution:
+* Icon design by [dugite-code](https://github.com/dugite-code/) - thanks a lot
