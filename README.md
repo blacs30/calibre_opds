@@ -1,6 +1,18 @@
 Calibre_opds
 ----------
 
+# Information
+
+However in case of the issues which appeared and also in light of Nextcloud 14 coming soon and no support for encryption on Nextcloud it might make sense to take the app from the store and rewrite it and better test it.
+
+I am not a php developer not have developed any apps for Nextcloud before. So I don't know at the moment the answer to the issues.
+
+I know the code doesn't look very good, doesn't have any tests and soon with version 14 it's not going to work at all without changes.
+
+I really wished it would've worked out differently.
+Because of personal circumstances I don't have that much time anymore to work on this actively so until a working version is there it might be Nextcloud 15 I believe.
+
+
 #### Known Restrictions 
 * Not compatible with Nextcloud 14
 * Not working with encryption enabled 
