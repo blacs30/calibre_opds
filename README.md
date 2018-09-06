@@ -13,11 +13,12 @@ I really wished it would've worked out differently.
 Because of personal circumstances I don't have that much time anymore to work on this actively so until a working version is there it might be Nextcloud 15 I believe.
 
 
-#### Known Restrictions 
+# Known Restrictions 
 * Not compatible with Nextcloud 14
 * Not working with encryption enabled 
 
 
+# About this app
 The Calibre on Nextcloud  OPDS catalog app enables Nextcloud/Owncloud (*-cloud for the rest of this text) users to publish a Calibre Library as an OPDS feed. 
 
 #### Calibre
